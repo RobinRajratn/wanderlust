@@ -1,0 +1,70 @@
+<!-- PAGE FOR CREATING NEW LISTINGS -->
+ 
+<!-- USING THE BOILERPLATE CODE -->
+<% layout("/layouts/boilerplate") %>
+
+<div class="row mt-3">
+  <div class="col-8 offset-2">
+    <h3>Create a new listing: </h3>
+
+    <!-- by using novalidate and needs-validation we are ensuring correct data is sent through the form -->
+    <!-- enctype used to change the data type of the form data -->
+    <form action="/listings" method="post" novalidate class="needs-validation" enctype="multipart/form-data">
+      <!-- TITLE -->
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <!-- making title as the key of the listing object in the name field -->
+        <input type="text" name="listing[title]" placeholder="Enter title" class="form-control" required>
+        <!-- success and failure texts -->
+        <div class="valid-feedback">Title looks good!</div>
+        <div class="invalid-feedback">Please enter a title.</div>
+      </div>
+
+      <!-- DESCRIPTION -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" placeholder="Write description" class="form-control" required></textarea>
+        <div class="invalid-feedback">Please enter a description.</div>
+      </div>
+
+      <!-- IMAGE -->
+      <div class="mb-3">
+        <label for="image" class="form-label">Upload Listing Image</label>
+        <input type="file" name="listing[image]" class="form-control" required>
+      </div>
+
+      <div class="row">
+        <!-- PRICE -->
+        <div class="mb-3 col-md-4">
+          <label for="price" class="form-label">Price</label>
+          <input type="number" name="listing[price]" placeholder="Enter price" class="form-control" required>
+
+          <div class="invalid-feedback">Please enter a valid price.</div>
+        </div>
+
+        <!-- LOCATION -->
+        <div class="mb-3 col-md-8">
+          <label for="location" class="form-label">Location</label>
+          <input type="text" name="listing[location]" placeholder="Enter location" class="form-control" required>
+
+          <div class="invalid-feedback">Please enter a valid location.</div>
+        </div>
+      </div>
+
+      <!-- COUNTRY -->
+      <div class="mb-3">
+        <label for="country" class="form-label">Country</label>
+        <input type="text" name="listing[country]" placeholder="Enter country" class="form-control" required>
+        <div class="invalid-feedback">Please enter a valid country.</div>
+      </div>
+
+      <button class="btn btn-dark add-btn mt-3">Add</button>
+      <br><br>
+    </form>
+  </div>
+</div>
+
+<!-- 
+'required' keyword implementation is browser dependent.
+It ensures that the fields is not submitted emptly.
+-->
